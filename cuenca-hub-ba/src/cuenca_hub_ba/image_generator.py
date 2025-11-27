@@ -8,7 +8,6 @@ import io
 
 def generar_imagen_diagnostica_hd(bands, timestamp_suffix=""):
     """Genera imagen de diagnóstico científico de alto valor"""
-    print("🎨 Generando Composición de Triaje Hidrológico...")
     
     # RGB Real con corrección de brillo agresiva
     rgb = np.dstack((bands['B4_Red'], bands['B3_Green'], bands['B2_Blue']))
@@ -121,5 +120,4 @@ def generar_imagen_diagnostica_hd(bands, timestamp_suffix=""):
     buffer.close()
     plt.close()
     
-    print("✅ Imagen de diagnóstico generada")
     return image_data

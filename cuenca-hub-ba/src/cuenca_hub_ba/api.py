@@ -429,26 +429,25 @@ async def analizar_sentinel2(request: Sentinel2Request):
         # Ejecutar análisis
         resultado = monitor.analyze()
         
-        # Generar imagen diagnóstica si no hay error
+        # Generar imagen diagnóstica
         if "error" not in resultado:
-            from datetime import datetime
-            from .image_generator import generar_imagen_diagnostica_hd
-            from .supabase_storage import upload_image_to_storage
-            
-            # Obtener bandas del monitor
-            item = monitor._get_research_grade_image()
-            bands = monitor._load_and_resample(item.assets)
-            
-            # Generar imagen
-            image_data = generar_imagen_diagnostica_hd(bands)
-            
-            # Subir a Supabase con timestamp
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"diagnostico_sentinel2_{timestamp}.png"
-            image_url = upload_image_to_storage(image_data, filename)
-            
-            if image_url:
-                resultado["diagnostic_image_url"] = image_url
+            try:
+                from datetime import datetime
+                from .image_generator import generar_imagen_diagnostica_hd
+                from .supabase_storage import upload_image_to_storage
+                
+                item = monitor._get_research_grade_image()
+                bands = monitor._load_and_resample(item.assets)
+                image_data = generar_imagen_diagnostica_hd(bands)
+                
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                filename = f"diagnostico_sentinel2_{timestamp}.png"
+                image_url = upload_image_to_storage(image_data, filename)
+                
+                if image_url:
+                    resultado["diagnostic_image_url"] = image_url
+            except Exception:
+                pass
         
         # Generar dashboard Argos
         if request.include_dashboard and argos_engine:
