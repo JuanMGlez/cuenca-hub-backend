@@ -1,0 +1,39 @@
+[project]
+name = "cuenca-hub-ba"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Juan Martin Gonzalez Razo",email = "juanmglezrazo@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "llama-index",
+    "llama-index-graph-stores-neo4j",
+    "llama-index-vector-stores-chroma",
+    "llama-index-embeddings-huggingface",
+    "llama-index-postprocessor-flag-embedding-reranker",
+    "pymupdf",
+    "spacy",
+    "networkx",
+    "sentence-transformers",
+    "neo4j",
+    "chromadb",
+    "transformers",
+    "torch",
+    "llama-index-llms-gemini",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+    "pandasai",
+    "pandasai-litellm",
+    "supabase",
+    "python-dotenv"
+]
+
+[tool.poetry]
+packages = [{include = "cuenca_hub_ba", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
