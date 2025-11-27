@@ -1,11 +1,7 @@
 """Configuración global del sistema KG-RAG"""
 
 import os
-<<<<<<< HEAD
 from dotenv import load_dotenv  # Importar dotenv
-=======
-from dotenv import load_dotenv # Importar dotenv
->>>>>>> de95b76f83cdafc50611b2098b85cf316e2d1cf4
 from llama_index.core import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.gemini import Gemini
@@ -20,28 +16,22 @@ CHROMA_DB_DIR = "./chroma_db"
 # Configuración Neo4j (Obtenida del .env)
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
-<<<<<<< HEAD
+
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")  # Ya no está hardcodeada
 
 # API Key de Gemini (Obtenida del .env)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-=======
-NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD") # Ya no está hardcodeada
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")  # Ya no está hardcodeada
 
 # API Key de Gemini (Obtenida del .env)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
->>>>>>> de95b76f83cdafc50611b2098b85cf316e2d1cf4
 
 # Configuración de modelos (multilingüe)
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-12-v2"
-# Nota: Verifica si tienes acceso a 'gemini-2.5-flash', el estándar actual suele ser 'gemini-1.5-flash'
-<<<<<<< HEAD
+
 LLM_MODEL_NAME = "models/gemini-2.5-flash"
-=======
-LLM_MODEL_NAME = "models/gemini-2.5-flash" 
->>>>>>> de95b76f83cdafc50611b2098b85cf316e2d1cf4
 
 # Configuración de chunking
 CHUNK_SIZE = 512
@@ -71,8 +61,8 @@ def setup_global_settings():
             system_instruction="Eres un consultor senior especializado en soluciones prácticas para restauración fluvial. ENFOQUE: Proporciona soluciones ESPECÍFICAS, CONCRETAS y ACCIONABLES. REGLAS: 1) SOLO usa referencias [1], [2], [3] que existan en los documentos, 2) Para cada problema, da soluciones técnicas detalladas con pasos específicos, 3) Incluye tecnologías, métodos y parámetros cuantitativos cuando estén disponibles, 4) Sé BREVE pero ÚTIL - evita generalidades. ESTRUCTURA: Problema identificado → Solución técnica específica → Pasos de implementación.",
         )
     else:
-    Settings.chunk_size = CHUNK_SIZE
-    Settings.chunk_overlap = CHUNK_OVERLAP
+        Settings.chunk_size = CHUNK_SIZE
+        Settings.chunk_overlap = CHUNK_OVERLAP
 
 
 def get_llm():
