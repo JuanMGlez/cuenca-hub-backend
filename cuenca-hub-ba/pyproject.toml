@@ -28,7 +28,10 @@ dependencies = [
     "pandasai",
     "pandasai-litellm",
     "supabase",
-    "python-dotenv"
+    "python-dotenv",
+    "rasterio (>=1.4.3,<2.0.0)",
+    "pystac-client (>=0.9.0,<0.10.0)",
+    "shapely (>=2.1.2,<3.0.0)"
 ]
 
 [tool.poetry]
