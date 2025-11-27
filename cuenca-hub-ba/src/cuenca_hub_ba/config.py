@@ -14,7 +14,7 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "jrK8Qd7wf2rggJW"
 
 # API Key de Gemini
-GEMINI_API_KEY = "AIzaSyDUWwcqpCZ9w4CwYbjx9EAWQgdR1mKC3oQ"  # Reemplaza con tu API key
+GEMINI_API_KEY = ""  # Reemplaza con tu API key
 
 # Configuración de modelos (multilingüe)
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
