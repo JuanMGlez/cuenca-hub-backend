@@ -41,7 +41,7 @@ def setup_global_settings():
     # Configurar Gemini LLM
     if GEMINI_API_KEY:
         Settings.llm = Gemini(
-            model="models/gemini-2.0-flash",
+            model="models/gemini-2.5-flash",
             api_key=GEMINI_API_KEY,
             temperature=0.1,
             max_tokens=2000,
@@ -56,11 +56,12 @@ def setup_global_settings():
 def get_llm():
     """Obtiene instancia del LLM configurado"""
     return Gemini(
-        model="models/gemini-2.0-flash",
+        model="models/gemini-2.5-flash",
         api_key=GEMINI_API_KEY,
         temperature=0.1,
-        max_tokens=2000
+        max_tokens=2000,
     )
+
 
 def ensure_directories():
     """Crea directorios necesarios si no existen"""
